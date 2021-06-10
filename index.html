@@ -10,10 +10,21 @@
 </head>
 
 <body>
-    <h1>Our News</h1>
-    <h2>alü</h2>
-    <h3>Test</h3>
-    <h5>Isabelle Test</h5>
+    <form action="">
+        <label for="searchbox">Search</label>
+        <input type="text" id="searchbox">
+        <label for="start">date</label>
+        <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
+        <input type="button" value="Submit" onclick="searchArticle()">
+    </form>
+    <section> Results
+        <article>
+            <h1>Title</h1>
+            <img src="" alt="">
+            <p>Author</p>
+            <p>Description</p>
+        </article>
+    </section>
     <script src="assets/js/main.js"></script>
 </body>
 
