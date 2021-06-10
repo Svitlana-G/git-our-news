@@ -15,7 +15,17 @@
         <input type="text" id="searchbox">
         <label for="start">date</label>
         <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
-        <input type="button" value="Submit" onclick="searchArticle()">
+        <select name="category" id="">
+            <option value="business">Business</option>
+            <option value="entertaiment">Entertaiment</option>
+            <option value="general">General</option>
+            <option value="health">Health</option>
+            <option value="science">Science</option>
+            <option value="sports">Sports</option>
+            <option value="technology">Technology</option>
+        </select>
+
+        <input type=" button" value="Submit" onclick="searchArticle()">
     </form>
     <section> Results
         <article>
