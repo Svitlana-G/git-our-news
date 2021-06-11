@@ -12,6 +12,15 @@ const searchbox = document.getElementById('searchbox')
 const date = document.getElementById('start')
 const result = document.getElementById('result')
 
+// let key = "8bc5492f1ef44bada733788535a2d779"
+let url_techology = `http://newsapi.org/v2/top-headlines?country=de&category=technology&apiKey=${myAPI.key}`
+let url_sport = `http://newsapi.org/v2/top-headlines?country=de&category=sport&apiKey=${myAPI.key}`
+let url_science = `http://newsapi.org/v2/top-headlines?country=de&category=science&apiKey=${myAPI.key}`
+let url_health = `http://newsapi.org/v2/top-headlines?country=de&category=health&apiKey=${myAPI.key}`
+let url_general = `http://newsapi.org/v2/top-headlines?country=de&category=general&apiKey=${myAPI.key}`
+let url_entertaiment = `http://newsapi.org/v2/top-headlines?country=de&category=entertainment&apiKey=${myAPI.key}`
+let url_bussiness = `http://newsapi.org/v2/top-headlines?country=de&category=business&apiKey=${myAPI.key}`
+let url_search = `http://newsapi.org/v2/everything?q=${searchbox.value}&from=${date.value}&sortBy=popularity&apiKey=${myAPI.key}`
 
 function placeholder() {
     let today = new Date().toISOString().slice(0, 10)
@@ -39,7 +48,6 @@ function searchArticle() {
     console.log(searchbox.value)
     console.log(date.value)
     result.innerHTML = ''
-    // fetch(url_search)
     fetch(`http://newsapi.org/v2/everything?q=${searchbox.value}&from=${date.value}&sortBy=popularity&apiKey=${myAPI.key}`)
         .then(response => response.json())
         .then(json => {
@@ -56,138 +64,6 @@ function searchArticle() {
 
 }
 
-// console.log(`http://newsapi.org/v2/top-headlines?country=de&category=business&apiKey= ${myAPI.key}`)
-function bussinessNews() {
-
-    result.innerHTML = ''
-    fetch(`http://newsapi.org/v2/top-headlines?country=de&category=business&apiKey=${myAPI.key}`)
-        .then(response => response.json())
-        .then(json => {
-            console.log(json.articles)
-            json.articles.forEach(elem => {
-                // console.log(elem)
-                result.innerHTML += `<article>
-                <h2>${elem.title}</h2>
-                <img src="${elem.urlToImage ? elem.urlToImage : ''}" alt="">
-                <p>${elem.author ? elem.author : elem.source.name}</p>
-                <p>${elem.description ? elem.description : ''} <a href="${elem.url}">weiter lesen</a> </p>`
-            })
-        })
-}
-
-function entertaimentNews() {
-
-    result.innerHTML = ''
-    fetch(`http://newsapi.org/v2/top-headlines?country=de&category=entertainment&apiKey=${myAPI.key}`)
-        .then(response => response.json())
-        .then(json => {
-            console.log(json.articles)
-            json.articles.forEach(elem => {
-                // console.log(elem)
-                result.innerHTML += `<article>
-                <h2>${elem.title}</h2>
-                <img src="${elem.urlToImage ? elem.urlToImage : ''}" alt="">
-                <p>${elem.author ? elem.author : ''}</p>
-                <p>${elem.description} <a href="${elem.url}">weiter lesen</a> </p>`
-            })
-        })
-}
-
-function generalNews() {
-
-    result.innerHTML = ''
-    fetch(`http://newsapi.org/v2/top-headlines?country=de&category=general&apiKey=${myAPI.key}`)
-        .then(response => response.json())
-        .then(json => {
-            console.log(json.articles)
-            json.articles.forEach(elem => {
-                // console.log(elem)
-                result.innerHTML += `<article>
-                <h2>${elem.title}</h2>
-                <img src="${elem.urlToImage ? elem.urlToImage : ''}" alt="">
-                <p>${elem.author ? elem.author : ''}</p>
-                <p>${elem.description} <a href="${elem.url}">weiter lesen</a> </p>`
-            })
-        })
-}
-// generalNews()
-
-function healthNews() {
-
-    result.innerHTML = ''
-    fetch(`http://newsapi.org/v2/top-headlines?country=de&category=health&apiKey=${myAPI.key}`)
-        .then(response => response.json())
-        .then(json => {
-            console.log(json.articles)
-            json.articles.forEach(elem => {
-                // console.log(elem)
-                result.innerHTML += `<article>
-                <h2>${elem.title}</h2>
-                <img src="${elem.urlToImage ? elem.urlToImage : ''}" alt="">
-                <p>${elem.author ? elem.author : ''}</p>
-                <p>${elem.description} <a href="${elem.url}">weiter lesen</a> </p>`
-            })
-        })
-}
-
-function scienceNews() {
-
-    result.innerHTML = ''
-    fetch(`http://newsapi.org/v2/top-headlines?country=de&category=science&apiKey=${myAPI.key}`)
-        .then(response => response.json())
-        .then(json => {
-            console.log(json.articles)
-            json.articles.forEach(elem => {
-                // console.log(elem)
-                result.innerHTML += `<article>
-                <h2>${elem.title}</h2>
-                <img src="${elem.urlToImage ? elem.urlToImage : ''}" alt="">
-                <p>${elem.author ? elem.author : ''}</p>
-                <p>${elem.description} <a href="${elem.url}">weiter lesen</a> </p>`
-            })
-        })
-}
-
-function sportNews() {
-
-    result.innerHTML = ''
-    fetch(`http://newsapi.org/v2/top-headlines?country=de&category=sport&apiKey=${myAPI.key}`)
-        .then(response => response.json())
-        .then(json => {
-            console.log(json.articles)
-            json.articles.forEach(elem => {
-                // console.log(elem)
-                result.innerHTML += `<article>
-                <h2>${elem.title}</h2>
-                <img src="${elem.urlToImage ? elem.urlToImage : ''}" alt="">
-                <p>${elem.author ? elem.author : ''}</p>
-                <p>${elem.description} <a href="${elem.url}">weiter lesen</a> </p>`
-            })
-        })
-}
-
-// function technologyNews() {
-
-//     result.innerHTML = ''
-//     fetch(`http://newsapi.org/v2/top-headlines?country=de&category=technology&apiKey=${myAPI.key}`)
-//         .then(response => response.json())
-//         .then(json => {
-//             console.log(json.articles)
-//             json.articles.forEach(elem => {
-//                 // console.log(elem)
-//                 result.innerHTML += `<article>
-//                 <h2>${elem.title}</h2>
-//                 <img src="${elem.urlToImage ? elem.urlToImage : ''}" alt="Bild">
-//                 <p>${elem.author ? elem.author : ''}</p>
-//                 <p>${elem.description} <a href="${elem.url}">weiter lesen</a> </p>`
-//             })
-//         })
-// }
-
-let key = "8bc5492f1ef44bada733788535a2d779"
-let url_base = `http://newsapi.org/v2/top-headlines?country=de&category=technology&apiKey=${myAPI.key}`
-fetch(url_base)
-
 function news(para) {
 
     result.innerHTML = ''
@@ -201,11 +77,39 @@ function news(para) {
                 <h2>${elem.title}</h2>
                 <img src="${elem.urlToImage ? elem.urlToImage : ''}" alt="Bild">
                 <p>${elem.author ? elem.author : ''}</p>
-                <p>${elem.description} <a href="${elem.url}">weiter lesen</a> </p>`
+                <p>${elem.description ? elem.description : ''} <a href="${elem.url}">weiter lesen</a> </p>`
             })
         })
 }
 
+// function searchArticle() {
+//     news(url_search)
+// }
+function bussinessNews() {
+    news(url_bussiness)
+}
+
+function entertaimentNews() {
+    news(url_entertaiment)
+}
+
+function generalNews() {
+    news(url_general)
+}
+generalNews()
+
+function healthNews() {
+    news(url_health)
+}
+
+function scienceNews() {
+    news(url_science)
+}
+
+function sportNews() {
+    news(url_sport)
+}
+
 function technologyNews() {
-    news(url_base)
+    news(url_techology)
 }
