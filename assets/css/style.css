@@ -47,6 +47,7 @@ header a {
     font-size: 1.1rem;
 }
 
+
 /* search */
 
 form {
@@ -123,6 +124,7 @@ article:nth-of-type(5n + 1) img {
 article:nth-of-type(5n + 1) p {
     font-size: 1.5rem;
 }
+
 
 /* footer */
 
