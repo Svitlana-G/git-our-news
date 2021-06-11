@@ -1,10 +1,4 @@
-// Inputs abholen ==> Svitlana
-// API Fetch function
-// IN der Box das Result zurückgeben ==> Samir
-// ISabelleKey: 5d1d96fdba1347b7b6768e2c6896d024
-// SamirKey: 9e340e4b19664220be3bd0e04a3bbb15
-//SvitlanaKey: 94798b1296374af2bf61c5454a75c435
-//PräsiKey: 
+
 
 const myAPI = {
     key: "8bc5492f1ef44bada733788535a2d779",
@@ -42,9 +36,10 @@ function placeholder() {
             json.articles.forEach(elem => {
                 // console.log(elem)
                 result.innerHTML += `<article>
-                 <h3>Some News about: ${randomTopic}</h3>
+               
             <h2>${elem.title}</h2>
             <img src="${elem.urlToImage ? elem.urlToImage : 'assets/img/Dailynews.jpg'}" alt="">
+            <h3>Some News about: ${randomTopic}</h3>
             <p>${elem.author}</p>
             <p>${elem.description} <a href='${elem.url}' target="_blank"> Read More</a> </p> </article>`
             })
@@ -68,6 +63,7 @@ function searchArticle() {
                 result.innerHTML += `<article>
                 <h2>${elem.title}</h2>
                 <img src="${elem.urlToImage ? elem.urlToImage : 'assets/img/Dailynews.jpg'}" alt="">
+                <h3>Some News about: ${searchbox.value}</h3>
                 <p>${elem.author ? elem.author : ''}</p>
                 <p>${elem.description} <a href='${elem.url}' target="_blank">Read More</a> </p> </article>`
             })
@@ -86,7 +82,8 @@ function news(para) {
                 // console.log(elem)
                 result.innerHTML += `<article>
                 <h2>${elem.title}</h2>
-                <img src="${elem.urlToImage ? elem.urlToImage : ''}" alt="Bild">
+                <img src="${elem.urlToImage ? elem.urlToImage : 'assets/img/Dailynews.jpg'}" alt="Bild">
+                <h3>Some News about:</h3>
                 <p>${elem.author ? elem.author : ''}</p>
                 <p>${elem.description ? elem.description : ''} <a href="${elem.url}">weiter lesen</a> </p>`
             })

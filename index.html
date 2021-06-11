@@ -11,58 +11,53 @@
 
 <body>
     <header>
-        <div>
-            <h1>Daily News</h1>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="#" onclick="bussinessNews()">Business</a>
-                    </li>
-                    <li>
-                        <a href="#" onclick="entertaimentNews()">Entertaiment</a>
-                    </li>
-                    <li>
-                        <a href="#" onclick="generalNews()">General</a>
-                    </li>
-                    <li>
-                        <a href="#" onclick="healthNews()">Health</a>
-                    </li>
-                    <li>
-                        <a href="#" onclick="scienceNews()">Science</a>
-                    </li>
-                    <li>
-                        <a href="#" onclick="sportNews()">Sports</a>
-                    </li>
-                    <li>
-                        <a href="#" onclick="technologyNews()">Technology</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <a href="index.html">
+                <h1>Daily News</h1>
+            </a>
+            <ul>
+                <li>
+                    <a href="#" onclick="bussinessNews()">Business</a>
+                </li>
+                <li>
+                    <a href="#" onclick="entertaimentNews()">Entertaiment</a>
+                </li>
+                <li>
+                    <a href="#" onclick="generalNews()">General</a>
+                </li>
+                <li>
+                    <a href="#" onclick="healthNews()">Health</a>
+                </li>
+                <li>
+                    <a href="#" onclick="scienceNews()">Science</a>
+                </li>
+                <li>
+                    <a href="#" onclick="sportNews()">Sports</a>
+                </li>
+                <li>
+                    <a href="#" onclick="technologyNews()">Technology</a>
+                </li>
+            </ul>
+        </nav>
 
-        <form action="">
-            <label for="searchbox">Search</label>
-            <input type="text" id="searchbox">
-            <label for="start">date</label>
+        <form action="#">
+            <input type="text" id="searchbox" placeholder="Search">
+            <input type="button" value="" onclick="searchArticle()">
             <input type="date" id="start" name="trip-start">
-            <p>Sort by</p>
             <select name="category" id="sortBy">
                 <option value="business">Popularity</option>
                 <option value="entertaiment">Author</option>
                 <option value="general">Published Date</option>
                 <option value="health">Relevance</option>
             </select>
-            <input type="button" value="Submit" onclick="searchArticle()">
         </form>
     </header>
-    <section id="result">
-        <!-- <article>
-            <h1>Title</h1>
-            <img src="" alt="">
-            <p>Author</p>
-            <p>Description</p>
-        </article> -->
-    </section>
+    <main>
+        <section id="result"></section>
+    </main>
+    <footer>
+        <h2>What? You´re scroll down until the news end! You're crasy dude!</h2>
+    </footer>
     <script src="assets/js/main.js"></script>
 </body>
 
