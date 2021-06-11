@@ -45,15 +45,13 @@
             <input type="text" id="searchbox">
             <label for="start">date</label>
             <input type="date" id="start" name="trip-start">
-            <!-- <select name="category" id="">
-                <option value="business">Business</option>
-                <option value="entertaiment">Entertaiment</option>
-                <option value="general">General</option>
-                <option value="health">Health</option>
-                <option value="science">Science</option>
-                <option value="sports">Sports</option>
-                <option value="technology">Technology</option>
-            </select> -->
+            <p>Sort by</p>
+            <select name="category" id="sortBy">
+                <option value="business">Popularity</option>
+                <option value="entertaiment">Author</option>
+                <option value="general">Published Date</option>
+                <option value="health">Relevance</option>
+            </select>
             <input type="button" value="Submit" onclick="searchArticle()">
         </form>
     </header>
