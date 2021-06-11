@@ -1,23 +1,30 @@
 // Inputs abholen ==> Svitlana
 // API Fetch function
 // IN der Box das Result zurückgeben ==> Samir
-// Key: 6198b77b7ab94542bd32134d9f46635e
+// ISabelleKey: 5d1d96fdba1347b7b6768e2c6896d024
+// SamirKey: 9e340e4b19664220be3bd0e04a3bbb15
+//SvitlanaKey: 94798b1296374af2bf61c5454a75c435
+//PräsiKey: 
 
 const myAPI = {
-    key: "6198b77b7ab94542bd32134d9f46635e",
-    url_base: "https://newsapi.org/v2/sources?apiKey=6198b77b7ab94542bd32134d9f46635e"
+    key: "5d1d96fdba1347b7b6768e2c6896d024",
+    url_base: "https://newsapi.org/v2/everything?"
 }
 
-
+window.onload = (event) => {
+    console.log('page is fully loaded');
+    placeholder();
+};
 const searchbox = document.getElementById('searchbox')
 const date = document.getElementById('start')
 const result = document.getElementById('result')
+const sortBy = document.querySelector('select')
 
 function placeholder() {
-    let today = new Date().toISOString().slice(0, 10)
-    let arrayTopics = ['Sport', 'Bussiness', 'Politics', 'Cinema', 'Health', 'Entertainment', 'Science', 'Technology', 'Apple', 'USA']
+    let today = new Date().toISOString().slice(0, 10);
+    let arrayTopics = ['Sport', 'Bussiness', 'Politics', 'Cinema', 'Health', 'Entertainment', 'Science', 'Technology', 'Apple', 'USA', 'Astrology', 'Weather']
     let randomTopic = arrayTopics[Math.floor(Math.random() * arrayTopics.length)];
-    fetch(`http://newsapi.org/v2/everything?q=${randomTopic}&from=${today}&sortBy=popularity&apiKey=6198b77b7ab94542bd32134d9f46635e`)
+    fetch(`http://newsapi.org/v2/everything?q=${randomTopic}&from=${today}&sortBy=${sortBy.value}=${myAPI.key}`)
         .then(response => response.json())
         .then(json => {
             console.log(json.articles)
@@ -26,19 +33,22 @@ function placeholder() {
                 result.innerHTML += `<article>
                 <h3>Some News about: ${randomTopic}</h3>
             <h2>${elem.title}</h2>
-            <img src="${elem.urlToImage ? elem.urlToImage : ''}" alt="">
+            <img src="${elem.urlToImage ? elem.urlToImage : 'assets/img/Dailynews.jpg'}" alt="">
             <p>${elem.author}</p>
-            <p>${elem.description} <a href="${elem.url}">weiter lesen</a> </p> </article>`
+            <p>${elem.description} <a href='${elem.url}' target="_blank"> Read More</a> </p> </article>`
             })
         })
-
 }
-placeholder();
+
 function searchArticle() {
     console.log(searchbox.value)
-    console.log(date.value)
-    result.innerHTML = ''
-    fetch(`http://newsapi.org/v2/everything?q=${searchbox.value}&from=${date.value}&sortBy=popularity&apiKey=6198b77b7ab94542bd32134d9f46635e`)
+    console.log(date.value);
+    console.log(sortBy.value);
+    result.innerHTML = '';
+    // if (date.value == "") {
+
+    // }
+    fetch(`http://newsapi.org/v2/everything?q=${searchbox.value}&from=${date.value}&sortBy=${sortBy.value}=${myAPI.key}`)
         .then(response => response.json())
         .then(json => {
             console.log(json.articles)
@@ -47,9 +57,9 @@ function searchArticle() {
                 result.innerHTML += `<article>
                 <h3>You searched for News about: ${searchbox.value}</h3>
                 <h2>${elem.title}</h2>
-                <img src="${elem.urlToImage ? elem.urlToImage : ''}" alt="">
+                <img src="${elem.urlToImage ? elem.urlToImage : 'assets/img/Dailynews.jpg'}" alt="">
                 <p>${elem.author}</p>
-                <p>${elem.description} <a href="${elem.url}">weiter lesen</a> </p> </article>`
+                <p>${elem.description} <a href='${elem.url}' target="_blank">weiter lesen</a> </p> </article>`
             })
         })
 }
