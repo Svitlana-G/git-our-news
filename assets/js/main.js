@@ -23,11 +23,11 @@ function placeholder() {
             json.articles.forEach(elem => {
                 // console.log(elem)
                 result.innerHTML += `<article>
-                <h3>Some News about: ${randomTopic}</h3>
             <h2>${elem.title}</h2>
             <img src="${elem.urlToImage ? elem.urlToImage : ''}" alt="">
+            <h3>Some News about: ${randomTopic}</h3>
             <p>${elem.author}</p>
-            <p>${elem.description} <a href="${elem.url}">weiter lesen</a> </p> </article>`
+            <p>${elem.description} <a href="${elem.url}">weiterlesen</a> </p> </article>`
             })
         })
 
