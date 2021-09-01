@@ -1,7 +1,7 @@
 
 
 const myAPI = {
-    key: "8bc5492f1ef44bada733788535a2d779",
+    key: "5d1d96fdba1347b7b6768e2c6896d024",
     url_base: "https://newsapi.org/v2/everything?"
 }
 
